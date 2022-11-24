@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">NotesApp</string>
+    <string name="addNote">Add Note</string>
+    <string name="title">Title</string>
+    <string name="meeting_date">Meeting Date</string>
+    <string name="save">Save</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="email">E-Mail Address</string>
+    <string name="signin">SIGN IN</string>
+    <string name="register">Register</string>
+    <string name="signup">SIGN UP</string>
+    <string name="sign_in_text">Don\'t have account? Click here to sign up</string>
 </resources>

@@ -6,30 +6,27 @@
     <data>
         <variable name="viewmodel"
             type="com.example.notesapp.auth.viewmodel.AuthViewModel"/>
-
     </data>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".auth.ui.LoginActivity">
+        tools:context=".auth.ui.RegisterActivity">
 
         <androidx.appcompat.widget.LinearLayoutCompat
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:gravity="center"
-            android:orientation="vertical"
-            tools:context=".auth.ui.LoginActivity">
+            android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/lblTitle"
+                android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:lineSpacingExtra="8sp"
-                android:text="@string/signin"
+                android:text="@string/signup"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -63,33 +60,18 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
-                android:onClick="@{() -> viewmodel.loginValidation()}"
-                android:text="@string/login"
+                android:onClick="@{(v) -> viewmodel.signupValidation()}"
+                android:text="@string/register"
                 android:textSize="18sp" />
 
-
-            <TextView
-                android:id="@+id/tvSignUp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
-                android:gravity="center"
-                android:onClick="@{(v) -> viewmodel.goToSignup(v)}"
-                android:text="@string/sign_in_text"
-                android:textColor="@color/purple_500"
-                android:textSize="14sp" />
-
         </androidx.appcompat.widget.LinearLayoutCompat>
-
         <ProgressBar
             android:id="@+id/progressbar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_centerInParent="true"
-            android:visibility="gone" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </RelativeLayout>
+
 </layout>
