@@ -8,24 +8,27 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.notesapp.auth.AuthListener
 import com.example.notesapp.R
 import com.example.notesapp.databinding.ActivityAddNoteBinding
-import com.example.notesapp.home.HomeViewModel
 import com.example.notesapp.startHomeActivity
+
 
 class AddNoteActivity : AppCompatActivity(), AuthListener {
 
-    private lateinit var viewModel: HomeViewModel
+    private lateinit var viewModel: AddNoteViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding: ActivityAddNoteBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_add_note)
+        if (supportActionBar != null) {
+            supportActionBar?.hide();
+        }
         setViewModel(binding)
         getIntentData()
     }
 
     private fun setViewModel(binding: ActivityAddNoteBinding) {
-        viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
-        binding.homeviewmodel = viewModel
+        viewModel = ViewModelProvider(this)[AddNoteViewModel::class.java]
+        binding.addnoteviewmodel = viewModel
         viewModel.authListener = this
     }
 
@@ -48,4 +51,5 @@ class AddNoteActivity : AppCompatActivity(), AuthListener {
     override fun onFailure(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
+
 }

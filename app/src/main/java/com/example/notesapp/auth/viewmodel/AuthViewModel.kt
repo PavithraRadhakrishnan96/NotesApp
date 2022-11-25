@@ -5,21 +5,30 @@ import android.view.View
 import androidx.lifecycle.ViewModel
 import com.example.notesapp.auth.AuthListener
 import com.example.notesapp.auth.ui.RegisterActivity
+import com.example.notesapp.di.AppModule
+import com.example.notesapp.di.DaggerViewModelInjector
+import com.example.notesapp.di.ViewModelInjector
 import com.google.firebase.auth.FirebaseAuth
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class AuthViewModel : ViewModel() {
+ class AuthViewModel : ViewModel() {
     var email: String? = null
     var password: String? = null
 
     private val disposables = CompositeDisposable()
 
     var authListener: AuthListener? = null
-    private val firebaseAuth: FirebaseAuth by lazy {
-        FirebaseAuth.getInstance()
+
+    @Inject
+    lateinit var firebaseAuth: FirebaseAuth
+
+    init {
+            val injector:ViewModelInjector=DaggerViewModelInjector.builder().appModule(AppModule()).build()
+        injector.inject(this)
     }
 
 
@@ -87,8 +96,6 @@ class AuthViewModel : ViewModel() {
             }
         }
     }
-
-   // fun logout() = firebaseAuth.signOut()
 
     fun currentUser() = firebaseAuth.currentUser
 

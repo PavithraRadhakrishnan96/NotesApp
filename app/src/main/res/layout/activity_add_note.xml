@@ -6,8 +6,8 @@
     tools:context=".addnote.AddNoteActivity"
     >
     <data>
-        <variable name="homeviewmodel"
-            type="com.example.notesapp.home.HomeViewModel"/>
+        <variable name="addnoteviewmodel"
+            type="com.example.notesapp.addnote.AddNoteViewModel"/>
 
     </data>
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:hint="@string/title"
-            android:text="@={homeviewmodel.title}"
+            android:text="@={addnoteviewmodel.title}"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:onClick="@{(v) -> homeviewmodel.dateSelection(v)}"
+            android:onClick="@{(v) -> addnoteviewmodel.dateSelection(v)}"
             >
 
             <TextView
@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@={homeviewmodel.date}"
+                android:text="@={addnoteviewmodel.date}"
 
                 />
 
@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:hint="Add Notes..."
-            android:text="@={homeviewmodel.notes}"
+            android:text="@={addnoteviewmodel.notes}"
             android:textSize="16sp"
 
             />
@@ -108,7 +108,7 @@
                 android:layout_marginStart="16dp"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                android:onClick="@{(v) -> homeviewmodel.saveDataInDb()}"
+                android:onClick="@{(v) -> addnoteviewmodel.saveDataInDb()}"
                 android:text="@string/save"
                 />
 
